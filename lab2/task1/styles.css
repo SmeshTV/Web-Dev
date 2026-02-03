@@ -19,7 +19,7 @@ body {
   max-width: 980px;
   width: 100%;
   padding: 0 20px;
-  gap: 32px;           /* расстояние между колонками */
+  gap: 32px;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -32,21 +32,21 @@ body {
 
 .logo {
   color: #1877f2;
-  font-size: 4.5rem;    /* ~72px, большой как на реальной странице */
+  font-size: 4.5rem;
   font-weight: bold;
   line-height: 1;
   margin-bottom: 20px;
 }
 
 .slogan {
-  font-size: 1.75rem;   /* ~28px */
+  font-size: 1.75rem;
   font-weight: normal;
   line-height: 1.3;
   color: #1c1e21;
 }
 
 .right {
-  width: 396px;         /* точная ширина формы на FB */
+  width: 396px;
   flex-shrink: 0;
 }
 
