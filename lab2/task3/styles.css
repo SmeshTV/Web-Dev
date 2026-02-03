@@ -11,7 +11,7 @@ body {
   line-height: 1.5;
 }
 
-/* Сброс дефолтных стилей кнопок */
+
 button, .btn, a.btn {
   font-family: inherit;
   font-size: inherit;
@@ -19,11 +19,11 @@ button, .btn, a.btn {
   border: none;
   background: none;
   cursor: pointer;
-  appearance: none; /* убирает дефолтный вид браузера */
+  appearance: none;
   -webkit-appearance: none;
 }
 
-/* Header / Top Nav */
+
 .header {
   border-bottom: 1px solid #d0d7de;
   background: white;
@@ -93,7 +93,7 @@ button, .btn, a.btn {
   font-weight: bold;
 }
 
-/* Кнопки — основные стили */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -159,7 +159,6 @@ button, .btn, a.btn {
   font-size: 20px;
 }
 
-/* Hero */
 .hero {
   text-align: center;
   padding: 100px 20px 80px;
@@ -178,7 +177,6 @@ button, .btn, a.btn {
   color: #444d56;
 }
 
-/* Plans */
 .plans {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -266,7 +264,6 @@ button, .btn, a.btn {
   margin: 24px 0;
 }
 
-/* Featured Add-ons */
 .featured-addons {
   padding: 80px 24px;
   text-align: center;
@@ -295,7 +292,7 @@ button, .btn, a.btn {
   font-weight: 500;
 }
 
-/* Responsive */
+
 @media (max-width: 1024px) {
   .plans {
     grid-template-columns: repeat(2, 1fr);
