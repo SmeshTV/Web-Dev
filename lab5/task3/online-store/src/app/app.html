@@ -1,0 +1,27 @@
+<div class="app">
+  <header>
+    <h1>Kaspi Магазин</h1>
+    <p>Выберите категорию</p>
+  </header>
+
+  <div class="categories">
+    <button 
+      class="category-btn"
+      [class.active]="selectedCategoryId === null"
+      (click)="selectCategory(null)">
+      Все товары
+    </button>
+
+    <button 
+      *ngFor="let cat of categories"
+      class="category-btn"
+      [class.active]="selectedCategoryId === cat.id"
+      (click)="selectCategory(cat.id)">
+      {{ cat.name }}
+    </button>
+  </div>
+
+  <app-product-list 
+    [categoryId]="selectedCategoryId">
+  </app-product-list>
+</div>
