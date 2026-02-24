@@ -26,14 +26,17 @@
     </div>
 
     <div class="likes">
-      <button class="like-btn" (click)="like()">❤️ {{ product.likes }}</button>
+      <button class="like-btn" (click)="like()">
+        ❤️ {{ product.likes }}
+        <span *ngFor="let id of heartAnimations" class="heart-pop">+1</span>
+      </button>
     </div>
 
     <div class="actions">
       <a [href]="product.link" target="_blank" class="btn primary">На Kaspi</a>
       <button class="btn whatsapp" (click)="shareToWhatsApp()">WA</button>
       <button class="btn telegram" (click)="shareToTelegram()">TG</button>
-      <button class="btn delete" (click)="deleteProduct()">Удалить</button>
+      <button class="btn delete" (click)="confirmDelete()">Удалить</button>
     </div>
   </div>
 </div>

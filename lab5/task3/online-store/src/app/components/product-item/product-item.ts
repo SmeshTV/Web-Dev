@@ -14,6 +14,7 @@ export class ProductItemComponent {
   delete = output<number>();
 
   currentImageIndex = 0;
+  heartAnimations: number[] = [];   // массив для нескольких анимаций
 
   get currentImage(): string {
     return this.product.images[this.currentImageIndex];
@@ -33,10 +34,21 @@ export class ProductItemComponent {
 
   like() {
     this.product.likes++;
+    
+    // Каждый клик создаёт новую анимацию
+    const animationId = Date.now();
+    this.heartAnimations.push(animationId);
+
+    // Удаляем анимацию через 700 мс
+    setTimeout(() => {
+      this.heartAnimations = this.heartAnimations.filter(id => id !== animationId);
+    }, 700);
   }
 
-  deleteProduct() {
-    this.delete.emit(this.product.id);
+  confirmDelete() {
+    if (confirm('Вы уверены, что хотите удалить этот товар?')) {
+      this.delete.emit(this.product.id);
+    }
   }
 
   shareToWhatsApp() {

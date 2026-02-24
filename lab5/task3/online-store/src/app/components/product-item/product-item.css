@@ -152,3 +152,36 @@ h3 {
 .whatsapp { background: #25D366; color: white; }
 .telegram { background: #0088cc; color: white; }
 .delete { background: #d32f2f; color: white; }
+
+.likes {
+  margin: 12px 0;
+  text-align: center;
+  position: relative;
+}
+
+.like-btn {
+  padding: 8px 16px;
+  font-size: 1.1rem;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.heart-pop {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ff4444;
+  font-weight: bold;
+  font-size: 1.4rem;
+  opacity: 0;
+  animation: pop 0.7s ease-out forwards;
+}
+
+@keyframes pop {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(0) scale(0.5); }
+  30%  { opacity: 1; transform: translateX(-50%) translateY(-45px) scale(1.2); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-80px) scale(1); }
+}
