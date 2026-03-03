@@ -1,0 +1,14 @@
+<div class="container">
+  <button routerLink="..">← Back to Album Details</button>
+  
+  <h2>Photos</h2>
+  
+  <div *ngIf="loading">Loading photos...</div>
+
+  <div class="photo-grid" *ngIf="!loading">
+    <div class="photo-card" *ngFor="let photo of photos">
+      <img [src]="photo.thumbnailUrl" [alt]="photo.title">
+      <div class="overlay">{{ photo.title }}</div>
+    </div>
+  </div>
+</div>

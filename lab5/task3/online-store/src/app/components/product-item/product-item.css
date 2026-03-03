@@ -156,7 +156,6 @@ h3 {
 .likes {
   margin: 12px 0;
   text-align: center;
-  position: relative;
 }
 
 .like-btn {
@@ -168,20 +167,10 @@ h3 {
   cursor: pointer;
 }
 
-.heart-pop {
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #ff4444;
-  font-weight: bold;
-  font-size: 1.4rem;
-  opacity: 0;
-  animation: pop 0.7s ease-out forwards;
+.like-btn:hover {
+  background: #f8f8f8;
 }
 
-@keyframes pop {
-  0%   { opacity: 0; transform: translateX(-50%) translateY(0) scale(0.5); }
-  30%  { opacity: 1; transform: translateX(-50%) translateY(-45px) scale(1.2); }
-  100% { opacity: 0; transform: translateX(-50%) translateY(-80px) scale(1); }
+.like-btn span.liked {
+  color: #ff4444;
 }

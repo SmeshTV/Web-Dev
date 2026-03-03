@@ -1,0 +1,11 @@
+input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+}
+.actions button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}

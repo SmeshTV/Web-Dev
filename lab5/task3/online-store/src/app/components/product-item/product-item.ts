@@ -14,7 +14,7 @@ export class ProductItemComponent {
   delete = output<number>();
 
   currentImageIndex = 0;
-  heartAnimations: number[] = [];   // массив для нескольких анимаций
+  isLiked = false;
 
   get currentImage(): string {
     return this.product.images[this.currentImageIndex];
@@ -32,27 +32,24 @@ export class ProductItemComponent {
     this.currentImageIndex = index;
   }
 
-  like() {
-    this.product.likes++;
-    
-    // Каждый клик создаёт новую анимацию
-    const animationId = Date.now();
-    this.heartAnimations.push(animationId);
-
-    // Удаляем анимацию через 700 мс
-    setTimeout(() => {
-      this.heartAnimations = this.heartAnimations.filter(id => id !== animationId);
-    }, 700);
+  toggleLike() {
+    if (this.isLiked) {
+      this.product.likes--;
+      this.isLiked = false;
+    } else {
+      this.product.likes++;
+      this.isLiked = true;
+    }
   }
 
   confirmDelete() {
-    if (confirm('Вы уверены, что хотите удалить этот товар?')) {
+    if (confirm('Точно?')) {
       this.delete.emit(this.product.id);
     }
   }
 
   shareToWhatsApp() {
-    const text = `Смотри какой товар: ${this.product.name}\n${this.product.link}`;
+    const text = `Смотри: ${this.product.name}\n${this.product.link}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   }
 

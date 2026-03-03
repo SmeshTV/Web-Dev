@@ -1,0 +1,17 @@
+.about-container {
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.info-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+hr {
+  margin: 15px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}

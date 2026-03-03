@@ -1,0 +1,17 @@
+<div class="container" *ngIf="album">
+  <button (click)="goBack()">← Back to Albums</button>
+  
+  <h2>Album Details</h2>
+  <div class="card">
+    <p><strong>ID:</strong> {{ album.id }}</p>
+    <p><strong>User ID:</strong> {{ album.userId }}</p>
+    
+    <label for="title">Title:</label>
+    <input id="title" [(ngModel)]="tempTitle" placeholder="Edit title">
+    
+    <div class="actions">
+      <button class="save-btn" (click)="save()">Save</button>
+      <button class="photos-btn" [routerLink]="['photos']">View Photos</button>
+    </div>
+  </div>
+</div>
