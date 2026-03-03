@@ -1,17 +1,37 @@
-<div class="container" *ngIf="album">
-  <button (click)="goBack()">← Back to Albums</button>
+<div class="container" *ngIf="album; else loading">
+  <button class="back-btn" (click)="goBack()">← Back to Albums</button>
   
-  <h2>Album Details</h2>
+  <h2>Album Details #{{ album.id }}</h2>
+  
   <div class="card">
-    <p><strong>ID:</strong> {{ album.id }}</p>
-    <p><strong>User ID:</strong> {{ album.userId }}</p>
+    <div class="info-group">
+      <p><strong>ID:</strong> {{ album.id }}</p>
+      <p><strong>User ID:</strong> {{ album.userId }}</p>
+      <p><strong>Original Title:</strong> {{ album.title }}</p> </div>
     
-    <label for="title">Title:</label>
-    <input id="title" [(ngModel)]="tempTitle" placeholder="Edit title">
+    <hr>
+
+    <div class="edit-group">
+      <label for="title">Edit Title:</label>
+      <input 
+        id="title" 
+        name="title" 
+        [(ngModel)]="tempTitle" 
+        placeholder="Enter new title..."
+        class="title-input"
+      >
+    </div>
     
     <div class="actions">
-      <button class="save-btn" (click)="save()">Save</button>
+      <button class="save-btn" (click)="save()">Save Changes</button>
       <button class="photos-btn" [routerLink]="['photos']">View Photos</button>
     </div>
   </div>
 </div>
+
+<ng-template #loading>
+  <div class="container">
+    <div class="loader">Loading album information...</div>
+    <button (click)="goBack()">Cancel</button>
+  </div>
+</ng-template>

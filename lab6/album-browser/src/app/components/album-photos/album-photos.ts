@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, ActivatedRoute } from '@angular/router';
 import { Photo } from '../../models';
 import { AlbumService } from '../../services/album.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-album-photos',
@@ -17,7 +18,8 @@ export class AlbumPhotosComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private albumService: AlbumService
+    private albumService: AlbumService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -25,6 +27,7 @@ export class AlbumPhotosComponent implements OnInit {
     this.albumService.getAlbumPhotos(id).subscribe(data => {
       this.photos = data;
       this.loading = false;
+      this.cdr.detectChanges();
     });
   }
 }

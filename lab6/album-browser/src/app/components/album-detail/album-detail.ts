@@ -4,6 +4,7 @@ import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Album } from '../../models';
 import { AlbumService } from '../../services/album.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-album-detail',
@@ -13,20 +14,23 @@ import { AlbumService } from '../../services/album.service';
   styleUrls: ['./album-detail.css']
 })
 export class AlbumDetailComponent implements OnInit {
-  album!: Album;
+  album!: any;
   tempTitle: string = '';
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private albumService: AlbumService
+    private albumService: AlbumService,
+    private cdr: ChangeDetectorRef
   ) {}
+
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.albumService.getAlbum(id).subscribe(data => {
       this.album = data;
       this.tempTitle = data.title;
+      this.cdr.detectChanges();
     });
   }
 
@@ -35,6 +39,7 @@ export class AlbumDetailComponent implements OnInit {
     this.albumService.updateAlbum(updatedAlbum).subscribe(result => {
       this.album = result;
       alert('Changes saved (simulated)!');
+      this.cdr.detectChanges();
     });
   }
 
